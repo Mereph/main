@@ -1,0 +1,139 @@
+openapi: 3.0.3
+info:
+  title: Mereph Pay
+  description: Mereph Payment system
+  version: 2.0.0
+servers:
+  - url: 'https://mereph.ru/payment/v2'
+components:
+  schemas:
+    errorMessage:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: object
+          required:
+            - description
+            - code
+          properties:
+            code:
+              type: number
+            description:
+              type: string
+    UUID:
+      type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+paths:
+  /version:
+    get:
+      description: Возвращает текущую версию API
+      responses:
+        '200':
+          description: 'successful'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - version
+                properties:
+                  version:
+                    type: string
+  /status:
+    get:
+      description: Информация о транзакциях в промежутке времени (по умолчанию сегодня)
+      parameters:
+        - name: startFrom
+          in: query
+          description: начало временного промежутка
+          schema:
+            type: number
+        - name: endAt
+          in: query
+          description: конец промежутка
+          schema:
+            type: number
+        - name: time
+          in: query
+          description: временной промежуток относительно текущего
+      security:
+        - BasicAuth: []
+      responses:
+        '200':
+          description: 'successful'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - transactionsCount
+                  - failurePercentage
+                  - finishedTransactions
+                properties:
+                  transactionCount:
+                    type: number
+                  failurePrecentage:
+                    type: number
+                  finishedTransactions:
+                    type: number
+                  income:
+                    type: number
+        '401':
+          description: 'не авторизован и указывает собственные параметры'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorMessage'
+        '416':
+          description: 'указанный диапазон больше предельного'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorMessage'
+  /bill:
+    description: Работа со счетами
+    get:
+      description: Получает информацию об указанном счёте
+      parameters:
+        - name: billId
+          in: query
+          description: ИД счёта
+          schema:
+            $ref: '#/components/schemas/UUID'
+        - name: merchant
+          in: query
+          description: получить ли информацию от мерчанта
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: 'выдаёт информацию о счёте'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  internal:
+                    type: object
+                    properties:
+                      id:
+                        $ref: '#/components/schemas/UUID'
+                      paymentSystem:
+                        type: string
+                      comment:
+                        type: string
+                      amount:
+                        type: number
+                      state:
+                        type: string
+                      hash:
+                        type: string
+                      changedAt:
+                        type: number
+                      openedAt:
+                        type: number

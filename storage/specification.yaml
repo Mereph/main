@@ -1,0 +1,164 @@
+openapi: 3.0.3
+info:
+  title: Storage API
+  description: Storage API
+  version: 0.0.1
+servers:
+  - url: 'https://storage.mereph.ru'
+components:
+  securitySchemes:
+    userAuth:
+      type: apiKey
+      in: cookie
+      name: session
+  schemas:
+    Success:
+      type: object
+      required:
+        - success
+      properties:
+        success:
+          type: object
+          properties:
+            description:
+              type: string
+            payload:
+              type: object
+    Error:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: object
+          required:
+            - description
+          properties:
+            description:
+              type: string
+security:
+  - userAuth: []
+paths:
+  /product/{productId}:
+    get:
+      description: Get product resource
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: File or product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    head:
+      description: Get info about product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - success
+                properties:
+                  success:
+                    type: object
+                    required:
+                      - payload
+                    properties:
+                      payload:
+                        type: object
+                        required:
+                          - id
+                          - name
+                        properties:
+                          id:
+                            type: number
+                          name:
+                            type: string
+                          link:
+                            type: string
+                          size:
+                            type: number
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Upload file to product
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Name already taken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      description: Delete file
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: File or product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
