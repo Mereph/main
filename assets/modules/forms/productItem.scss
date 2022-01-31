@@ -1,3 +1,5 @@
+@import '../button';
+
 .productItem {
   // configs
   $brand-color: #EE6C90;
@@ -59,26 +61,5 @@
     padding: $padding 0;
     text-align: center;
     height: 46px;
-  }
-
-  &__button {
-    font-family: inherit;
-    background-color: $brand-color;
-    border: none;
-    border-top: 0 solid transparent;
-    border-bottom: 4px solid darken($brand-color, 20%);
-    outline: none;
-    border-radius: $round;
-    padding: $padding / 2 $padding;
-    color: $brand-text-color;
-    font-size: 18px;
-    transition: .2s;
-    cursor: pointer;
-  }
-
-  &__button:hover {
-    margin-top: 3px;
-    background-color: lighten($brand-color, 5%);
-    border-bottom-width: 1px;
   }
 }
