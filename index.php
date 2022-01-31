@@ -1,9 +1,13 @@
-<html lang="ru">
 <?php
 session_start();
 require_once "config.php";
+/* @var mysqli $db */
+require_once "imports/db.php";
+
+require_once "modules/forms/productItem.php";
+
 require 'imports/user.php';
-require 'imports/db.php';
+
 $accountCurrent = false;
 $account = null;
 if($_SESSION['newEmail'] != null && $_SESSION['newPassword'] != null){
@@ -11,7 +15,21 @@ if($_SESSION['newEmail'] != null && $_SESSION['newPassword'] != null){
   $accountCurrent = true;
 }
 
+function display_products(): string {
+    global $db;
+    $products = $db->query("
+        SELECT `id`, `name`, `description`, `price`
+        FROM `".sql_database."`.`".db_products_list."`
+        ORDER BY UNIX_TIMESTAMP(`createdAt`) DESC
+    ");
+    $output = "";
+    while ($product = $products->fetch_object()) {
+        $output .= productItem($product);
+    }
+    return $output;
+}
 ?>
+<html lang="ru">
 <head>
     <title>Mereph</title>
     <link rel="stylesheet" href="assets/style.css"/>
@@ -59,27 +77,7 @@ if($_SESSION['newEmail'] != null && $_SESSION['newPassword'] != null){
 
     <div class="shop">
 
-      <?
-      $products = $db->query("SELECT * FROM `products`");
-      foreach ($products as $key) {
-        ?>
-        <div class="shop_product">
-          <div class="ecosystem_support_tab" style="margin-bottom: 2.2em;">
-          <h3><?=$key['product_name']?></h3>
-          <div class="align_sphere" style="width: 25px;">
-            <div class="sphere"></div>
-          </div>
-        </div>
-          <hr>
-          <p><?=$key['product_desc']?></p>
-          <form method="POST" action="payment_state">
-            <input type="hidden" name="product_id" value="<?=$key['id']?>">
-            <button>Купить за <?=$key['product_price']?>₽</button>
-          </form>
-        </div>
-        <?
-      }
-      ?>
+      <?=display_products()?>
 
     </div>
 
