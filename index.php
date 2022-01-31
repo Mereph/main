@@ -36,7 +36,6 @@ function display_products(): string
     <title>Mereph</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/index.css">
-    <link rel="stylesheet" href="assets/modules/forms/productItem.css">
   <?php require_once "modules/metaTags.php" ?>
 </head>
 <body>
@@ -62,15 +61,24 @@ function display_products(): string
 </div>
 
 <div class="middle">
-    <div class="middle_left">
-        <h2><span style="color: EE6C90;">В</span>зломай сервер мгновенно уже <span style="color: EE6C90;">сегодня</span>
-        </h2>
-        <p>Мы даем возможность игрокам проектов майнкрафт, получить желаемый донат прямо сейчас без знание навыков
-            программирование</p>
-        <a href="https://oxy.cloud/d/uKTe">Установить</a>
+    <div class="middle__left">
+        <h1>
+            Взломай сервер мгновенно уже <span class="mark--main">сегодня</span>
+        </h1>
+        <p>
+            Мы даем возможность игрокам майнкрафт проектов получать желаемый донат прямо сейчас.
+            Без всяких знаний и навыков программирование.
+        </p>
+        <div>
+            <a href="https://oxy.cloud/d/uKTe" class="button_link">
+                <button class="button--big">
+                    Установить
+                </button>
+            </a>
+        </div>
     </div>
-    <div class="middle_right">
-        <img src="assets/image/1.webp">
+    <div class="middle__right">
+        <img src="assets/image/1.webp" width="370" height="611" alt="preview">
     </div>
 </div>
 
