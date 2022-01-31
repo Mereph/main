@@ -34,7 +34,9 @@ function display_products(): string
 <html lang="ru">
 <head>
     <title>Mereph</title>
-    <link rel="stylesheet" href="assets/style.css"/>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/index.css">
+    <link rel="stylesheet" href="assets/modules/forms/productItem.css">
   <?php require_once "modules/metaTags.php" ?>
 </head>
 <body>
@@ -80,10 +82,8 @@ function display_products(): string
         <p>Найди любой товар на свой вкус</p>
     </div>
 
-    <div class="shop">
-
-      <?= display_products() ?>
-
+    <div class="product-list">
+        <?= display_products() ?>
     </div>
 
 
