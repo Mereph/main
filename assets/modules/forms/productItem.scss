@@ -1,0 +1,84 @@
+.productItem {
+  // configs
+  $brand-color: #EE6C90;
+  $brand-text-color: #FFFFFF;
+  $text-color: #000000;
+  $background: #F5F5F5;
+  $round: 8px;
+  $dot-size: 20px;
+  $padding: 20px;
+
+  & {
+    font-family: 'Google Sans', sans-serif;
+    position: relative;
+    padding: $padding;
+    background-color: $background;
+    border-radius: $round;
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    text-align: left;
+    display: inline-grid;
+    gap: $padding / 2;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .10);
+    border: 1px solid darken($background, 5%);
+  }
+
+  & > * {
+    margin: 0;
+  }
+
+  & > hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: $text-color;
+    opacity: .5;
+  }
+
+  &::before {
+    position: absolute;
+    top: $padding;
+    right: $padding;
+    content: '';
+    width: $dot-size;
+    height: $dot-size;
+    background-color: $brand-color;
+    border-radius: $dot-size / 2;
+  }
+
+  &__title {
+    font-family: 'VK Sans Display Medium', sans-serif;
+  }
+
+  &__description {
+    font-size: 17px;
+  }
+
+  &__payContainer {
+    padding: $padding 0;
+    text-align: center;
+    height: 46px;
+  }
+
+  &__button {
+    font-family: inherit;
+    background-color: $brand-color;
+    border: none;
+    border-top: 0 solid transparent;
+    border-bottom: 4px solid darken($brand-color, 20%);
+    outline: none;
+    border-radius: $round;
+    padding: $padding / 2 $padding;
+    color: $brand-text-color;
+    font-size: 18px;
+    transition: .2s;
+    cursor: pointer;
+  }
+
+  &__button:hover {
+    margin-top: 3px;
+    background-color: lighten($brand-color, 5%);
+    border-bottom-width: 1px;
+  }
+}
