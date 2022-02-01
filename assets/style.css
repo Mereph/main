@@ -23,62 +23,62 @@ div {
 	box-sizing: border-box;
 }
 
-.header {
-	width: 100%;
-}
+/*.header {*/
+/*	width: 100%;*/
+/*}*/
 
-.header img {
-	position: absolute;
-	top: 4.4em;
-	left: 4%;
-}
+/*.header img {*/
+/*	position: absolute;*/
+/*	top: 4.4em;*/
+/*	left: 4%;*/
+/*}*/
 
-.header_auth {
-	background-color: #EE6C90;
-	color: white;
-	padding: 10px 30px 13px 30px;
-	border-radius: 8px;
-	position: absolute;
-	top: 5em;
-	right: 3%;
-	font-size: 18px;
-	transition-duration: 300ms;
-	cursor: pointer;
-}
+/*.header_auth {*/
+/*	background-color: #EE6C90;*/
+/*	color: white;*/
+/*	padding: 10px 30px 13px 30px;*/
+/*	border-radius: 8px;*/
+/*	position: absolute;*/
+/*	top: 5em;*/
+/*	right: 3%;*/
+/*	font-size: 18px;*/
+/*	transition-duration: 300ms;*/
+/*	cursor: pointer;*/
+/*}*/
 
-.header_auth:hover {
-	transition-duration: 300ms;
-	box-shadow: 0 0 10px rgba(238, 108, 144, 0.5);
-}
+/*.header_auth:hover {*/
+/*	transition-duration: 300ms;*/
+/*	box-shadow: 0 0 10px rgba(238, 108, 144, 0.5);*/
+/*}*/
 
-.header_user {
-	width: auto;
-	height: auto;
-	padding: 14px 0 14px 25px;
-	font-size: 17px;
-	color: #4B4949;
-	position: absolute;
-	font-family: 'VK Sans Display Medium', sans-serif;
-	top: 5em;
-	right: 3%;
-	border-radius: 12px;
-	transition-duration: 300ms;
-	cursor: pointer;
-}
+/*.header_user {*/
+/*	width: auto;*/
+/*	height: auto;*/
+/*	padding: 14px 0 14px 25px;*/
+/*	font-size: 17px;*/
+/*	color: #4B4949;*/
+/*	position: absolute;*/
+/*	font-family: 'VK Sans Display Medium', sans-serif;*/
+/*	top: 5em;*/
+/*	right: 3%;*/
+/*	border-radius: 12px;*/
+/*	transition-duration: 300ms;*/
+/*	cursor: pointer;*/
+/*}*/
 
-.header_user:hover {
-	transition-duration: 300ms;
-	background-color: #F5F5F5;
-}
+/*.header_user:hover {*/
+/*	transition-duration: 300ms;*/
+/*	background-color: #F5F5F5;*/
+/*}*/
 
-.header_user span {
-	width: auto;
-	padding: 13px;
-	border-radius: 12px;
-	background-color: #F5F5F5;
-	color: #EE6C90;
-	font-weight: lighter;
-}
+/*.header_user span {*/
+/*	width: auto;*/
+/*	padding: 13px;*/
+/*	border-radius: 12px;*/
+/*	background-color: #F5F5F5;*/
+/*	color: #EE6C90;*/
+/*	font-weight: lighter;*/
+/*}*/
 
 /*.middle {*/
 /*    display: flex;*/
