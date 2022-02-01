@@ -1,0 +1,31 @@
+@import "fonts/GoogleSans/stylesheet.css";
+@import "fonts/VKSans/stylesheet.css";
+
+body {
+	// configs
+	$scrollbar-width: 8px;
+	$brand-color: #EE6C90;
+
+	& {
+		user-select: none;
+	}
+
+	div {
+		box-sizing: border-box;
+	}
+
+	&::-webkit-scrollbar {
+		& {
+			width: $scrollbar-width;
+			height: $scrollbar-width;
+		}
+
+		&-track {
+			background-color: lighten(grayscale($brand-color), 25%);
+		}
+
+		&-thumb {
+			background-color: $brand-color;
+		}
+	}
+}
