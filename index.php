@@ -3,6 +3,7 @@ session_start();
 require_once "config.php";
 /* @var mysqli $db */
 require_once "imports/db.php";
+require_once "imports/utils/product.php";
 
 require_once "modules/forms/productItem.php";
 
@@ -15,20 +16,17 @@ if ($_SESSION['newEmail'] != null && $_SESSION['newPassword'] != null) {
   $accountCurrent = true;
 }
 
-function display_products(): string
+function display_products(mysqli_result $products): string
 {
-  global $db;
-  $products = $db->query("
-        SELECT `id`, `name`, `description`, `price`
-        FROM `" . sql_database . "`.`" . db_products_list . "`
-        ORDER BY UNIX_TIMESTAMP(`createdAt`) DESC
-    ");
   $output = "";
   while ($product = $products->fetch_object()) {
     $output .= productItem($product);
   }
   return $output;
 }
+
+$products = get_products();
+$isNoProducts = $products->num_rows == 0;
 
 ?>
 <html lang="ru">
@@ -90,8 +88,12 @@ function display_products(): string
         <p>Найди любой товар на свой вкус</p>
     </div>
 
-    <div class="product-list">
-        <?= display_products() ?>
+    <div class="product-list<?=$isNoProducts ? " product-list--empty" : ""?>">
+        <?=
+            $isNoProducts
+            ? "<h2>Нет товаров</h2>"
+            : display_products($products)
+        ?>
     </div>
 
 
