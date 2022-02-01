@@ -1,7 +1,6 @@
 <?php
-session_start();
-require_once "config.php";
 /* @var mysqli $db */
+require_once "config.php";
 require_once "imports/db.php";
 require_once "imports/utils/product.php";
 
@@ -99,15 +98,6 @@ $isNoProducts = $products->num_rows == 0;
 			?>
 		</article>
 	</section>
-
-	<div class="product-list<?= $isNoProducts ? " product-list--empty" : "" ?>">
-		<?=
-		$isNoProducts
-			? "<h2>Нет товаров</h2>"
-			: display_products($products)
-		?>
-	</div>
-
 
 	<div class="central_title">
 		<h1>Экосистема</h1>
