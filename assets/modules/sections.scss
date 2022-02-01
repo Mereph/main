@@ -1,6 +1,6 @@
 section {
 	& {
-		margin: 80px auto;
+		margin: 160px auto;
 		font-family: 'Google Sans', sans-serif;
 	}
 
@@ -13,4 +13,13 @@ section {
 	& > p {
 		font-size: 18px;
 	}
+
+	& > article {
+		margin: 32px;
+	}
+}
+
+footer {
+	font-family: 'Google Sans', sans-serif;
+	margin: 32px;
 }
