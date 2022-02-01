@@ -3,18 +3,20 @@
 require_once "config.php";
 require_once "imports/db.php";
 require_once "imports/utils/product.php";
+require_once "imports/utils/user.php";
 
 require_once "modules/forms/productItem.php";
 require_once "modules/forms/partnershipItem.php";
+require_once "modules/forms/userBadge.php";
 
 require 'imports/user.php';
 
-$accountCurrent = false;
-$account = null;
-if ($_SESSION['newEmail'] != null && $_SESSION['newPassword'] != null) {
-	$account = getUser($_SESSION['newEmail'], $_SESSION['newPassword'], "/");
-	$accountCurrent = true;
-}
+//$accountCurrent = false;
+//$account = null;
+//if ($_SESSION['newEmail'] != null && $_SESSION['newPassword'] != null) {
+//	$account = getUser($_SESSION['newEmail'], $_SESSION['newPassword'], "/");
+//	$accountCurrent = true;
+//}
 
 function display_products(mysqli_result $products): string
 {
@@ -28,6 +30,8 @@ function display_products(mysqli_result $products): string
 $products = get_products();
 $isNoProducts = $products->num_rows == 0;
 
+$user = null;
+
 ?>
 <html lang="ru">
 <head>
@@ -37,26 +41,14 @@ $isNoProducts = $products->num_rows == 0;
 	<?php require_once "modules/metaTags.php" ?>
 </head>
 <body>
-<script>
-	function profile() {
-		document.location.href = "https://mereph.ru/profile/";
-	}
-</script>
-<div class="header">
-	<img src="assets/image/dark_logo.webp" width="100" height="100">
-	<?
-	if ($accountCurrent == true) {
-		?>
-		<a onclick="profile()" class="header_user"><? echo $account['firstname'] . " " . $account['surname'] ?>
-			⠀<span><?= $account['balance'] ?>₽</span></a>
-		<?
-	} else {
-		?>
-		<a href="auth" class="header_auth">Авторизация</a>
-		<?
-	}
-	?>
-</div>
+	<header class="header">
+		<div class="header__left">
+			<img src="assets/image/dark_logo.webp" width="100" height="100" alt="logo">
+		</div>
+		<div class="header__right">
+			<?= userBadge($user) ?>
+		</div>
+	</header>
 
 <div class="middle">
 	<div class="middle__left">
