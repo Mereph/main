@@ -4,10 +4,17 @@ button, .button {
 	$brand-color: #EE6C90;
 	$brand-text-color: #FFFFFF;
 	$round: 8px;
-	$padding: 20px;
+	--padding: 20px;
+	--padding-ratio-v: 2;
+	--padding-ratio-h: 1;
 
 	&--big {
-		$padding: 30px;
+		--padding: 30px;
+	}
+
+	&--slim {
+		--padding-ratio-v: 3;
+		--padding-ratio-h: 1;
 	}
 
 	& {
@@ -16,7 +23,9 @@ button, .button {
 		border: none;
 		outline: none;
 		border-radius: $round;
-		padding: $padding / 2 $padding;
+		padding:
+			calc(var(--padding) / var(--padding-ratio-v))
+			calc(var(--padding) / var(--padding-ratio-h));
 		color: $brand-text-color;
 		font-size: 18px;
 		transition: .2s;
@@ -30,5 +39,12 @@ button, .button {
 }
 
 .button_link {
-	display: inline-block;
+	& {
+		display: inline-block;
+	}
+
+	& > button {
+		width: inherit;
+		height: inherit;
+	}
 }
