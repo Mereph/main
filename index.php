@@ -76,7 +76,7 @@ $isNoProducts = $products->num_rows == 0;
 		</div>
 	</div>
 	<div class="middle__right">
-		<img src="assets/image/1.webp" width="370" height="611" alt="preview">
+		<img src="assets/image/1.webp" width="296" height="488" alt="preview">
 	</div>
 </div>
 
