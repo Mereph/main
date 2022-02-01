@@ -7,6 +7,7 @@ require_once "imports/utils/user.php";
 require_once "modules/forms/productItem.php";
 require_once "modules/forms/partnershipItem.php";
 require_once "modules/forms/userBadge.php";
+require_once "modules/header.php";
 
 function display_products(mysqli_result $products): string {
 	$output = "";
@@ -29,14 +30,7 @@ $user = null;
 	<?php require_once "modules/metaTags.php" ?>
 </head>
 <body>
-<header class="header">
-	<div class="header__left">
-		<img src="assets/image/dark_logo.webp" width="100" height="100" alt="logo">
-	</div>
-	<div class="header__right">
-		<?= userBadge($user) ?>
-	</div>
-</header>
+<?= _header($user) ?>
 <div class="middle">
 	<div class="middle__left">
 		<h1>

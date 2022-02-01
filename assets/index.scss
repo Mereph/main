@@ -2,27 +2,13 @@
 @import "modules/forms/productItem";
 @import "modules/forms/partnershipItem";
 @import "modules/forms/userBadge";
+@import "modules/header";
 @import "modules/sections";
 @import "modules/button";
 @import "utils/markdown";
 
 body {
 	text-align: center;
-}
-
-.header {
-	& {
-		display: flex;
-		align-items: center;
-		text-align: left;
-		padding: 64px 32px;
-	}
-
-	&__left {
-		flex: 1;
-	}
-
-	&__right {}
 }
 
 .middle {
