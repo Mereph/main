@@ -5,6 +5,7 @@ require_once "imports/db.php";
 require_once "imports/utils/product.php";
 
 require_once "modules/forms/productItem.php";
+require_once "modules/forms/partnershipItem.php";
 
 require 'imports/user.php';
 
@@ -82,11 +83,6 @@ $isNoProducts = $products->num_rows == 0;
 
 <center>
 
-	<div class="central_title">
-		<h1>Магазин</h1>
-		<p>Найди любой товар на свой вкус</p>
-	</div>
-
 	<section>
 		<h1>Магазин</h1>
 		<p>Найди любой товар на свой вкус</p>
@@ -99,53 +95,29 @@ $isNoProducts = $products->num_rows == 0;
 		</article>
 	</section>
 
-	<div class="central_title">
+	<section>
 		<h1>Экосистема</h1>
 		<p>Поддерживаемые партнёры нашей системы</p>
-	</div>
+		<article class="partnership">
+			<?=
+				partnershipItem("TesloudHack", [
+					"link" => route."/assets/image/svg/tesloud.svg",
+				], "https://www.youtube.com/channel/UCd154PLYipdIYNTMVaBxVOg")
+				.partnershipItem("KinalHack", [
+					"link" => route."/assets/image/svg/kinal.svg",
+				], "https://www.youtube.com/channel/UCsft9V97hT5NONxzMv39Slg")
+				.partnershipItem("FlashBullet", [
+					"link" => route."/assets/image/svg/flash.svg",
+				], "https://www.youtube.com/channel/UCOo9S7lkBp0E_7dnXYCIGxQ")
+			?>
+		</article>
+	</section>
 
-	<div class="ecosystem">
-
-		<div class="ecosystem_support">
-			<div class="ecosystem_support_tab">
-				<h3>TesloudHack</h3>
-				<div class="align_sphere">
-					<div class="sphere"></div>
-					<div class="sphere" style="background: #C4C4C4;"></div>
-				</div>
-			</div>
-			<img src="assets/image/svg/tesloud.svg">
-			<a href="https://www.youtube.com/channel/UCd154PLYipdIYNTMVaBxVOg" target="_blank">Продолжить</a>
-		</div>
-
-		<div class="ecosystem_support">
-			<div class="ecosystem_support_tab">
-				<h3>KinalHack</h3>
-				<div class="align_sphere">
-					<div class="sphere"></div>
-					<div class="sphere" style="background: #C4C4C4;"></div>
-				</div>
-			</div>
-			<img src="assets/image/svg/kinal.svg">
-			<a href="https://www.youtube.com/channel/UCsft9V97hT5NONxzMv39Slg" target="_blank">Продолжить</a>
-		</div>
-
-		<div class="ecosystem_support">
-			<div class="ecosystem_support_tab">
-				<h3>FlashBullet</h3>
-				<div class="align_sphere">
-					<div class="sphere"></div>
-					<div class="sphere" style="background: #C4C4C4;"></div>
-				</div>
-			</div>
-			<img src="assets/image/svg/flash.svg">
-			<a href="https://www.youtube.com/channel/UCOo9S7lkBp0E_7dnXYCIGxQ" target="_blank">Продолжить</a>
-		</div>
-
-	</div>
-	<p class="access">© Все права защищены Mereph.ru</p>
+	<footer>
+		<p>© Все права защищены Mereph.ru</p>
+	</footer>
 
 </center>
 
-</body
+</body>
 </html>
