@@ -47,7 +47,7 @@ $user = null;
 			Без всяких знаний и навыков программирование.
 		</p>
 		<div>
-			<a href="https://oxy.cloud/d/uKTe" class="button_link">
+			<a href="https://oxy.cloud/d/uKTe" target="_blank" class="button_link">
 				<button class="button--big">
 					Установить
 				</button>
