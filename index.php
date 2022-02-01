@@ -80,9 +80,6 @@ $isNoProducts = $products->num_rows == 0;
 	</div>
 </div>
 
-
-<center>
-
 	<section>
 		<h1>Магазин</h1>
 		<p>Найди любой товар на свой вкус</p>
@@ -116,8 +113,6 @@ $isNoProducts = $products->num_rows == 0;
 	<footer>
 		<p>© Все права защищены Mereph.ru</p>
 	</footer>
-
-</center>
 
 </body>
 </html>
