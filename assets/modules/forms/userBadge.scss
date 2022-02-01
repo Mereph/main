@@ -1,0 +1,37 @@
+.userBadge {
+	// configs
+	$brand-color: #EE6C90;
+	$background: #F5F5F5;
+	$text-color: #000000;
+	$round: 8px;
+	$padding: 20px;
+
+	& {
+		color: $text-color;
+		background-color: transparent;
+		font-family: 'VK Sans Display Medium', sans-serif;
+		font-size: 17px;
+		padding: $padding / 2 $padding;
+		gap: $padding * 2;
+		border-radius: $round;
+		display: grid;
+		grid-auto-flow: column;
+		box-shadow: 0 0 0 0 darken($background, 20%);
+		transition: .2s;
+	}
+
+	&:hover {
+		box-shadow: 0 0 0 1px darken($background, 20%);
+		background-color: $background;
+	}
+
+	&__name {}
+
+	&__balance {
+		color: $brand-color;
+		background-color: $background;
+		margin: $padding / -2 $padding / -1;
+		padding: $padding / 2 $padding;
+		border-radius: $round;
+	}
+}
