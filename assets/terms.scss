@@ -1,0 +1,24 @@
+@import "global";
+@import "modules/forms/userBadge";
+@import "modules/header";
+@import "modules/button";
+@import "utils/markdown";
+
+$background: #F5F5F5;
+$round: 16px;
+
+
+
+main {
+	font-family: 'Google Sans', sans-serif;
+	max-width: 1280px;
+	margin: auto;
+	padding: 64px;
+	background-color: $background;
+	border: 1px solid darken($background, 20%);
+	border-radius: $round;
+}
+
+a[href] {
+	@extend .mark--main;
+}
