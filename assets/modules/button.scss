@@ -1,34 +1,34 @@
 
 button, .button {
-  // configs
-  $brand-color: #EE6C90;
-  $brand-text-color: #FFFFFF;
-  $round: 8px;
-  $padding: 20px;
+	// configs
+	$brand-color: #EE6C90;
+	$brand-text-color: #FFFFFF;
+	$round: 8px;
+	$padding: 20px;
 
-  &--big {
-    $padding: 30px;
-  }
+	&--big {
+		$padding: 30px;
+	}
 
-  & {
-    font-family: inherit;
-    background-color: $brand-color;
-    border: none;
-    outline: none;
-    border-radius: $round;
-    padding: $padding / 2 $padding;
-    color: $brand-text-color;
-    font-size: 18px;
-    transition: .2s;
-    cursor: pointer;
-  }
+	& {
+		font-family: inherit;
+		background-color: $brand-color;
+		border: none;
+		outline: none;
+		border-radius: $round;
+		padding: $padding / 2 $padding;
+		color: $brand-text-color;
+		font-size: 18px;
+		transition: .2s;
+		cursor: pointer;
+	}
 
-  &:hover {
-    background-color: darken($brand-color, 5%);
-    box-shadow: 0 0 12px 0 transparentize(darken($brand-color, 10%), .25);
-  }
+	&:hover {
+		background-color: darken($brand-color, 5%);
+		box-shadow: 0 0 12px 0 transparentize(darken($brand-color, 10%), .25);
+	}
 }
 
 .button_link {
-  display: inline-block;
+	display: inline-block;
 }

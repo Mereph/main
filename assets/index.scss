@@ -3,55 +3,55 @@
 @import "utils/markdown";
 
 .middle {
-  & {
-    margin: 0 auto;
-    font-family: 'Google Sans', sans-serif;
-    grid-template-columns: 2fr 1fr;
-    max-width: 980px;
-    display: grid;
-    align-items: center;
-  }
+	& {
+		margin: 0 auto;
+		font-family: 'Google Sans', sans-serif;
+		grid-template-columns: 2fr 1fr;
+		max-width: 980px;
+		display: grid;
+		align-items: center;
+	}
 
-  &__left {
-    & {
-      display: grid;
-      align-items: center;
-      gap: 32px;
-    }
+	&__left {
+		& {
+			display: grid;
+			align-items: center;
+			gap: 32px;
+		}
 
-    & > * {
-      margin: 0;
-    }
+		& > * {
+			margin: 0;
+		}
 
-    & > p {
-      font-size: 18px;
-    }
-  }
+		& > p {
+			font-size: 18px;
+		}
+	}
 
-  &__right {
-    & > img {
-      transform: perspective(1000px) rotateY(-35deg) rotateX(10deg);
-      border: 1px solid;
-      border-radius: 32px;
-    }
-  }
+	&__right {
+		& > img {
+			transform: perspective(1000px) rotateY(-35deg) rotateX(10deg);
+			border: 1px solid;
+			border-radius: 32px;
+		}
+	}
 }
 
 .product-list {
-  & {
-    font-family: 'Google Sans', sans-serif;
-    margin: 2em;
-    min-height: 300px;
-    display: grid;
-    gap: 32px;
-    grid-template-columns: repeat(auto-fit, 400px);
-    grid-auto-columns: max-content;
-    justify-content: center;
-    align-items: center;
-  }
+	& {
+		font-family: 'Google Sans', sans-serif;
+		margin: 2em;
+		min-height: 300px;
+		display: grid;
+		gap: 32px;
+		grid-template-columns: repeat(auto-fit, 400px);
+		grid-auto-columns: max-content;
+		justify-content: center;
+		align-items: center;
+	}
 
-  &--empty {
-    border-radius: 8px;
-    border: 2px dashed;
-  }
+	&--empty {
+		border-radius: 8px;
+		border: 2px dashed;
+	}
 }
