@@ -44,7 +44,7 @@ $user = null;
 		</h1>
 		<p>
 			Мы даем возможность игрокам майнкрафт проектов получать желаемый донат прямо сейчас.
-			Без всяких знаний и навыков программирование.
+			Без всяких знаний и навыков программирования.
 		</p>
 		<div>
 			<a href="https://oxy.cloud/d/uKTe" target="_blank" class="button_link">
@@ -60,7 +60,7 @@ $user = null;
 </div>
 <section>
 	<h1>Магазин</h1>
-	<p>Найди любой товар на свой вкус</p>
+	<p>Здесь ты найдёшь товар на свой вкус</p>
 	<article class="product-list<?= $isNoProducts ? " product-list--empty" : "" ?>">
 		<?=
 		$isNoProducts
@@ -71,7 +71,7 @@ $user = null;
 </section>
 <section>
 	<h1>Экосистема</h1>
-	<p>Поддерживаемые партнёры нашей системы</p>
+	<p>Партнёры нашей экосистемы</p>
 	<article class="partnership">
 		<?=
 		partnershipItem("TesloudHack", [
