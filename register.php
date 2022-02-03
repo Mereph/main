@@ -1,12 +1,12 @@
-<html lang="ru">
-<?
+<?php
 require_once "config.php";
 require 'imports/user.php';
-session_start();
+
 if ($_SESSION['backAuth'] == true) {
-	header('Location: /');
+	header('Location: '. route);
 }
 ?>
+<html lang="ru">
 <head>
 	<title>Mereph Connect</title>
 	<link rel="stylesheet" href="assets/auth.css"/>
@@ -15,34 +15,41 @@ if ($_SESSION['backAuth'] == true) {
 <body>
 <center>
 	<div class="center_div" style="margin: -400px 0 0 -190px;">
-		<img src="assets/image/connect.webp">
+		<img src="<?=route?>/assets/image/connect.webp" width="281" height="73" alt="connect_logo">
 		<div class="box">
 			<h2>Регистрация</h2>
-			<?
+			<?php
 			if (isset($_POST['auth'])) {
 				$reply = newUser($_POST['firstname'], $_POST['surname'], $_POST['email'], $_POST['password']);
-				echo '<h3>Ошибка входа<br>' . $reply . '</h3>';
+				echo "<h3>Ошибка входа<br>$reply</h3>";
 			}
 			?>
 			<form method="POST">
-				<p>Введите имя</p>
-				<input type="text" maxlength="22" name="firstname" placeholder="Михаил" autocomplete="off"
-				       autofocus="off" autosave="off" readonly onfocus="this.removeAttribute('readonly');">
-				<p>Введите фамилию</p>
-				<input type="text" maxlength="22" name="surname" placeholder="Смирнов" autocomplete="off"
-				       autofocus="off" autosave="off" readonly onfocus="this.removeAttribute('readonly');">
-				<p>Введите email</p>
-				<input type="email" name="email" placeholder="user@example.com" autocomplete="off" autofocus="off"
-				       autosave="off" readonly onfocus="this.removeAttribute('readonly');">
-				<p>Новый пароль</p>
-				<input type="password" name="password" placeholder="••••••••" autocomplete="off" autofocus="off"
-				       autosave="off" readonly onfocus="this.removeAttribute('readonly');">
+				<label>
+					<span>Имя</span>
+					<input type="text" maxlength="32" name="firstname" placeholder="Михаил" autocomplete="given-name">
+				</label>
+				<label>
+					<span>Фамилия</span>
+					<input type="text" maxlength="32" name="lastname" placeholder="Смирнов" autocomplete="family-name">
+				</label>
+				<label>
+					<span>E-mail</span>
+					<input type="email" maxlength="64" name="email" placeholder="user@example.com" autocomplete="email">
+				</label>
+				<label>
+					<span>Пароль</span>
+					<input type="password" maxlength="32" minlength="8" placeholder="••••••••" autocomplete="new-password">
+				</label>
 				<button name="auth" class="auth_box_submit">Продолжить</button>
 			</form>
 			<a href="auth">Уже есть аккаунт</a>
 		</div>
-		<p class="use">Нажимая кнопку «Продолжить» вы соглашаетесь с <span style="color: #EE6C90;">Условиями использования</span>
-			сервиса.</p>
+		<p class="use">
+			Нажимая кнопку «Продолжить» вы соглашаетесь с
+			<a style="color: #EE6C90;" href="<?=route?>/terms.php">Условиями использования</a>
+			сервиса.
+		</p>
 	</div>
 </center>
 </body>
