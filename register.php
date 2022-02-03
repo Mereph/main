@@ -9,11 +9,11 @@ if ($_SESSION['backAuth'] == true) {
 <html lang="ru">
 <head>
 	<title>Mereph Connect</title>
-	<link rel="stylesheet" href="assets/auth.css"/>
+	<link rel="stylesheet" href="<?=route?>/assets/authentication.css"/>
+	<link rel="stylesheet" href="<?=route?>/assets/auth.css"/>
 	<?php require_once "modules/metaTags.php" ?>
 </head>
 <body>
-<center>
 	<div class="center_div" style="margin: -400px 0 0 -190px;">
 		<img src="<?=route?>/assets/image/connect.webp" width="281" height="73" alt="connect_logo">
 		<div class="box">
@@ -47,10 +47,9 @@ if ($_SESSION['backAuth'] == true) {
 		</div>
 		<p class="use">
 			Нажимая кнопку «Продолжить» вы соглашаетесь с
-			<a style="color: #EE6C90;" href="<?=route?>/terms.php">Условиями использования</a>
+			<a class="mark--main" href="<?=route?>/terms.php">Условиями использования</a>
 			сервиса.
 		</p>
 	</div>
-</center>
 </body>
 </html>
