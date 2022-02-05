@@ -58,6 +58,7 @@ body {
 		grid-auto-columns: max-content;
 		justify-content: center;
 		align-items: center;
+		overflow-x: hidden;
 	}
 
 	&--empty {
@@ -73,4 +74,18 @@ body {
 	grid-auto-columns: max-content;
 	justify-content: center;
 	align-items: center;
+}
+
+// adaptive
+@media (max-device-width: 820px) {
+	.middle {
+		& {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		&__right {
+			display: none;
+		}
+	}
 }
