@@ -1,5 +1,6 @@
 <?php
 
+// TODO: rewrite user interface in future
 function throwError(string $description, int $code = 500, array $payload = []) {
 	$json = json_encode([
 		"error" => [
@@ -13,8 +14,14 @@ function throwError(string $description, int $code = 500, array $payload = []) {
 		exit($code);
 	}
 	$json = str_replace("'", "\'", $json);
-	echo $description."<br><a href=\"".route."\">Main page</a>";
-	echo "<script>console.log('$json')</script>";
+	echo $description."<br><a href=\"".route."\">Главная страница</a>";
+	echo "<script>console.error(JSON.parse('$json'))</script>";
+	exit($code);
+}
+
+function closeJSON(int $code, object $structure) {
+	header("Content-Type: application/json");
+	echo json_encode($structure);
 	exit($code);
 }
 
@@ -33,6 +40,9 @@ function fields_parse(array $descriptions, string $method = "GET"): array {
 			}
 			$processed[$description->name] = $methodLink[$alias];
 			break;
+		}
+		if ($processed[$description->name] == null) {
+			continue;
 		}
 		if (!empty($description->minlength) && $description->minlength > strlen($processed[$description->name])) {
 			$processed[$description->name] = null;
