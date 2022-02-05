@@ -4,5 +4,63 @@
 @import "modules/button";
 
 body {
-	text-align: center;
+	& {
+		font-family: 'VK Sans Display Medium', sans-serif;
+		text-align: center;
+		margin: 0 auto;
+		width: 300px;
+		padding: 32px 0;
+		display: grid;
+		gap: 24px;
+	}
+}
+
+form {
+	$background: #F5F5F5;
+	$round: 16px;
+	$padding: 20px;
+
+	& {
+		margin: auto;
+		display: grid;
+		gap: 16px;
+		width: 300px;
+		padding: $padding;
+		border: 1px solid darken($background, 20%);
+		border-radius: $round;
+	}
+
+	& > h2 {
+		margin: $padding / 2;
+	}
+
+	& label {
+		& {
+			display: grid;
+			gap: 4px;
+			width: 100%;
+		}
+
+		& > span {
+			text-align: left;
+			padding: 0 $padding / 2;
+		}
+
+		& > input {
+			width: inherit;
+			background-color: $background;
+			border: 1px solid darken($background, 10%);
+			border-radius: $round / 2;
+			padding: $padding / 2 $padding;
+			outline: none;
+		}
+	}
+
+	& > .split_grid {
+		display: grid;
+		grid-auto-flow: column;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+		width: 100%;
+	}
 }
