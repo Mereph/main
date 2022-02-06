@@ -3,16 +3,14 @@
 @import "utils/markdown";
 @import "modules/button";
 
-body {
-	& {
-		font-family: 'VK Sans Display Medium', sans-serif;
-		text-align: center;
-		margin: 0 auto;
-		width: 300px;
-		padding: 32px 0;
-		display: grid;
-		gap: 24px;
-	}
+.container {
+	font-family: 'VK Sans Display Medium', sans-serif;
+	text-align: center;
+	margin: 0 auto;
+	width: 300px;
+	padding: 32px 0;
+	display: grid;
+	gap: 24px;
 }
 
 form {
