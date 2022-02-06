@@ -1,6 +1,7 @@
 <?php
 // filepath
 const route = "/mereph_fork";
+const domain = "mereph.ru";
 
 // mariadb
 const sql_host = "localhost";
