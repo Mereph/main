@@ -15,3 +15,11 @@ const db_products_history = "products_history";
 
 // cookies
 const session_expire = 86400; // 1 day
+
+// crypto
+const crypto_algo = "AES-128-CTR";
+const crypto_iv = "";
+
+// crypto keys
+const token_crypto_key = "";
+const password_hash_key = "";
