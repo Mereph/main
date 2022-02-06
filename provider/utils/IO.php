@@ -57,6 +57,9 @@ function fields_parse(array $descriptions, string $method = "GET"): array {
 		if (!empty($description->max) && $description->max < (int) $processed[$description->name]) {
 			$processed[$description->name] = (string) $description->max;
 		}
+		if (!empty($description->regex) && preg_match($description->regex, $processed[$description->name]) == false) {
+			$processed[$description->name] = false;
+		}
 	}
 	return $processed;
 }
