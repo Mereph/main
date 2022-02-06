@@ -17,7 +17,7 @@ require 'imports/user.php';
 			<h2>Авторизация</h2>
 			<label>
 				<span>Логин / Email</span>
-				<input type="text" minlength="3" maxlength="24" name="user" placeholder="misha" autocomplete="nickname" required>
+				<input type="text" minlength="3" maxlength="64" name="user" placeholder="misha" autocomplete="nickname" required>
 			</label>
 			<label>
 				<span>Пароль</span>
