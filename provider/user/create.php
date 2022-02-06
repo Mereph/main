@@ -8,6 +8,7 @@ $fields_description = [
 	(object) [
 		"name" => "login",
 		"aliases" => ["login", "l"],
+		"regex" => "/^[^@]+$/",
 		"minlength" => 3,
 		"maxlength" => 24,
 	],
@@ -24,6 +25,7 @@ $fields_description = [
 	(object) [
 		"name" => "email",
 		"aliases" => ["email", "e"],
+		"regex" => "/^[^@]+@[^@]+$/",
 		"maxlength" => 64,
 	],
 	(object) [
@@ -42,7 +44,7 @@ $fields_description = [
 $fields = (object) fields_parse($fields_description, "POST");
 
 if (
-	$fields->firstName == null || $fields->lastName == null || $fields->email == null
+	$fields->login == null || $fields->firstName == null || $fields->lastName == null || $fields->email == null
 	|| $fields->password == null || $fields->TOS_agreement == null
 ) {
 	throwError("Одно из полей не задано", 400, [
