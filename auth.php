@@ -23,14 +23,9 @@ require 'imports/user.php';
 				<span>Пароль</span>
 				<input type="password" name="password" maxlength="32" minlength="8" placeholder="••••••••" autocomplete="current-password" required>
 			</label>
-			<button name="tos" value="1">Продолжить</button>
+			<button>Войти</button>
 			<a href="<?=route?>/register.php">Создать новый аккаунт</a>
 		</form>
-		<p>
-			Нажимая кнопку «Войти» вы соглашаетесь с
-			<a class="mark--main" href="<?=route?>/terms.php">Условиями использования</a>
-			сервиса.
-		</p>
 	</div>
 </body>
 </html>
