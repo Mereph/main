@@ -1,43 +1,36 @@
-<html lang="ru">
-<?
-session_start();
+<?php
 require_once "config.php";
 require 'imports/user.php';
-if ($_SESSION['backAuth'] == true) {
-	header('Location: /');
-}
 ?>
+<html lang="ru">
 <head>
 	<title>Mereph Connect</title>
-	<link rel="stylesheet" href="assets/auth.css"/>
+	<link rel="stylesheet" href="<?=route?>/assets/authentication.css"/>
 	<?php require_once "modules/metaTags.php" ?>
 </head>
 <body>
-<center>
-	<div class="center_div">
-		<img src="assets/image/connect.webp">
-		<div class="box">
+	<div class="container">
+		<a class="button_link" href="<?=route."/"?>">
+			<img src="<?=route?>/assets/image/connect.webp" width="281" height="73" alt="connect_logo">
+		</a>
+		<form method="POST" action="<?=route?>/provider/user/login.php">
 			<h2>Авторизация</h2>
-			<?
-			if (isset($_POST['auth'])) {
-				$check = authUser($_POST['email'], $_POST['password'], "profile");
-				echo '<h3>Ошибка входа<br>' . $check . '</h3>';
-			}
-			?>
-			<form method="POST">
-				<p>Введите email</p>
-				<input type="email" name="email" placeholder="user@example.com" autocomplete="off" autofocus="off"
-				       autosave="off" readonly onfocus="this.removeAttribute('readonly');">
-				<p>Введите пароль</p>
-				<input type="password" name="password" placeholder="••••••••" autocomplete="off" autofocus="off"
-				       autosave="off" readonly onfocus="this.removeAttribute('readonly');">
-				<button name="auth" class="auth_box_submit">Войти</button>
-			</form>
-			<a href="register">Создать новый аккаунт</a>
-		</div>
-		<p class="use">Нажимая кнопку «Войти» вы соглашаетесь с <span
-				style="color: #EE6C90;">Условиями использования</span> сервиса.</p>
+			<label>
+				<span>Логин / Email</span>
+				<input type="text" minlength="3" maxlength="24" name="user" placeholder="misha" autocomplete="nickname" required>
+			</label>
+			<label>
+				<span>Пароль</span>
+				<input type="password" name="password" maxlength="32" minlength="8" placeholder="••••••••" autocomplete="current-password" required>
+			</label>
+			<button name="tos" value="1">Продолжить</button>
+			<a href="<?=route?>/register.php">Создать новый аккаунт</a>
+		</form>
+		<p>
+			Нажимая кнопку «Войти» вы соглашаетесь с
+			<a class="mark--main" href="<?=route?>/terms.php">Условиями использования</a>
+			сервиса.
+		</p>
 	</div>
-</center>
 </body>
 </html>
