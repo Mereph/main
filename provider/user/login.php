@@ -42,7 +42,7 @@ if ($search->num_rows == 0) {
 
 $token_object = (object) [
 	"userId" => $search->fetch_object()->id,
-	"passwordHash" => md5($fields->password.":".password_hash_key),
+	"passwordHash" => md5(md5($fields->password).":".password_hash_key)
 ];
 
 $token_data = json_encode($token_object);

@@ -22,6 +22,19 @@ $isNoProducts = $products->num_rows == 0;
 
 $user = null;
 
+if (isset($_COOKIE["MC-token"])) {
+	$cookie = readCookie();
+	if ($cookie != null) {
+		$user = getUser($cookie->userId);
+		if ($user != null) {
+			$serverHash = md5($user->password.":".password_hash_key);
+			if ($serverHash != $cookie->passwordHash) {
+				$user = null;
+			}
+		}
+	}
+}
+
 ?>
 <html lang="ru">
 <head>
