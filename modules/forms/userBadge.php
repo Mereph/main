@@ -11,7 +11,7 @@ function userBadge(object|null $user): string {
 	}
 	$display_name = nameFormat($user);
 	$balance = $user->balance;
-	$profile_path = route."/profile.php";
+	$profile_path = route."/profile/index.php";
 	return <<< HTML
 		<a class="userBadge" href="${profile_path}">
 			<span class="userBadge__name">${display_name}</span>

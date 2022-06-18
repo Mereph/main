@@ -18,6 +18,7 @@
 		grid-auto-flow: column;
 		box-shadow: 0 0 0 0 darken($background, 20%);
 		transition: .2s;
+		text-decoration: none;
 	}
 
 	&:hover {
